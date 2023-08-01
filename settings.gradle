@@ -1,0 +1,5 @@
+rootProject.name = 'ddd_samples'
+include 'adapter'
+include 'application'
+include 'domain'
+
