@@ -5,7 +5,7 @@ import com.tw.hexagon.ddd_sample.domain.order.model.Order;
 
 import java.util.Optional;
 
-public interface OrderPort {
+public interface OrderPersistencePort {
 
     Optional<Order> findById(String id);
 

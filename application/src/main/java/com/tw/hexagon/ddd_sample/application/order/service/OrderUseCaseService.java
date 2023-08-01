@@ -7,8 +7,8 @@ import com.tw.hexagon.ddd_sample.application.order.exception.OrderNotFoundExcept
 import com.tw.hexagon.ddd_sample.application.order.port.in.result.OrderCreateResult;
 import com.tw.hexagon.ddd_sample.application.order.port.in.result.OrderQueryResult;
 import com.tw.hexagon.ddd_sample.application.order.port.in.usecase.OrderUseCasePort;
-import com.tw.hexagon.ddd_sample.application.currency.port.out.CurrencyAmountPort;
-import com.tw.hexagon.ddd_sample.application.order.port.out.OrderPort;
+import com.tw.hexagon.ddd_sample.application.currency.port.out.CurrencyAmountPersistencePort;
+import com.tw.hexagon.ddd_sample.application.order.port.out.OrderPersistencePort;
 import com.tw.hexagon.ddd_sample.domain.currency.model.CurrencyAmount;
 import com.tw.hexagon.ddd_sample.domain.order.model.Order;
 import lombok.RequiredArgsConstructor;
@@ -21,8 +21,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 class OrderUseCaseService implements OrderUseCasePort {
 
-    private final OrderPort orderPort;
-    private final CurrencyAmountPort currencyAmountPort;
+    private final OrderPersistencePort orderPort;
+    private final CurrencyAmountPersistencePort currencyAmountPort;
 
     public OrderCreateResult createOrder(OrderCreateCommand command) {
         Order order = new Order();

@@ -1,7 +1,7 @@
 package com.tw.hexagon.ddd_sample.adapter.out.persistence.currency;
 
 import com.tw.hexagon.ddd_sample.adapter.out.persistence.currency.dto.CurrencyQueryDTO;
-import com.tw.hexagon.ddd_sample.application.currency.port.out.CurrencyAmountPort;
+import com.tw.hexagon.ddd_sample.application.currency.port.out.CurrencyAmountPersistencePort;
 import com.tw.hexagon.ddd_sample.domain.currency.model.CurrencyAmount;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Slf4j
 @Component
-public class CurrencyAmountAdapter implements CurrencyAmountPort {
+public class CurrencyAmountPersistenceAdapter implements CurrencyAmountPersistencePort {
 
     private static final Map<String, Double> CURRENCY_DICT = Map.of("CNY", 1D, "USD", 7D, "EUR", 8D);
 
