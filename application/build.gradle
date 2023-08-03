@@ -1,5 +1,5 @@
 dependencies {
-    implementation project(':domain')
+    api project(':domain')
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-test'
 }
