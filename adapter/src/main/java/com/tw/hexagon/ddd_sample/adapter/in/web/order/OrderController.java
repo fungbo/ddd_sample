@@ -10,7 +10,7 @@ import com.tw.hexagon.ddd_sample.application.order.port.in.command.OrderQuantity
 import com.tw.hexagon.ddd_sample.application.order.port.in.command.OrderTotalPriceCalculateCommand;
 import com.tw.hexagon.ddd_sample.application.order.port.in.result.OrderCreateResult;
 import com.tw.hexagon.ddd_sample.application.order.port.in.result.OrderQueryResult;
-import com.tw.hexagon.ddd_sample.application.order.port.in.usecase.OrderUseCasePort;
+import com.tw.hexagon.ddd_sample.application.order.port.in.usecase.OrderUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +21,7 @@ import java.math.BigDecimal;
 @RequestMapping("/orders")
 public class OrderController {
 
-    private final OrderUseCasePort orderUseCasePort;
+    private final OrderUseCase orderUseCasePort;
 
     @PostMapping
     public OrderCreateResponse createOrder(@RequestBody OrderCreateRequest request) {

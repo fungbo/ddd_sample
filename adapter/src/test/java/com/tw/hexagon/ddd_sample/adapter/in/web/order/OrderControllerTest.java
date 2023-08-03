@@ -1,7 +1,7 @@
 package com.tw.hexagon.ddd_sample.adapter.in.web.order;
 
 import com.tw.hexagon.ddd_sample.application.order.port.in.command.OrderTotalPriceCalculateCommand;
-import com.tw.hexagon.ddd_sample.application.order.port.in.usecase.OrderUseCasePort;
+import com.tw.hexagon.ddd_sample.application.order.port.in.usecase.OrderUseCase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -22,7 +22,7 @@ class OrderControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private OrderUseCasePort orderUseCasePort;
+    private OrderUseCase orderUseCasePort;
 
     @Test
     void should_calculate_total_price_of_order_when_currency_is_usd() throws Exception {

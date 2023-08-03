@@ -1,7 +1,7 @@
 package com.tw.hexagon.ddd_sample.adapter.out.persistence.order;
 
 import com.tw.hexagon.ddd_sample.adapter.out.persistence.order.entity.OrderEntity;
-import com.tw.hexagon.ddd_sample.application.order.port.out.OrderPersistencePort;
+import com.tw.hexagon.ddd_sample.application.order.port.out.OrderRepository;
 import com.tw.hexagon.ddd_sample.domain.order.model.Order;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @Slf4j
 @Component
-public class OrderPersistenceAdapter implements OrderPersistencePort {
+public class OrderPersistenceAdapter implements OrderRepository {
 
     @Override
     public Optional<Order> findById(String id) {

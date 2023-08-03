@@ -1,11 +1,11 @@
 package com.tw.hexagon.ddd_sample.application.order.service;
 
-import com.tw.hexagon.ddd_sample.application.currency.port.out.CurrencyAmountPersistencePort;
+import com.tw.hexagon.ddd_sample.application.currency.port.out.CurrencyAmountGateway;
 import com.tw.hexagon.ddd_sample.application.order.exception.OrderValidationException;
 import com.tw.hexagon.ddd_sample.application.order.port.in.command.OrderCreateCommand;
 import com.tw.hexagon.ddd_sample.application.order.port.in.command.OrderTotalPriceCalculateCommand;
 import com.tw.hexagon.ddd_sample.application.order.port.in.result.OrderCreateResult;
-import com.tw.hexagon.ddd_sample.application.order.port.out.OrderPersistencePort;
+import com.tw.hexagon.ddd_sample.application.order.port.out.OrderRepository;
 import com.tw.hexagon.ddd_sample.domain.currency.model.CurrencyAmount;
 import com.tw.hexagon.ddd_sample.domain.order.model.Order;
 import org.junit.jupiter.api.Test;
@@ -28,13 +28,13 @@ import static org.mockito.Mockito.when;
 class OrderUseCaseServiceTest {
 
     @Mock
-    private OrderPersistencePort orderPort;
+    private OrderRepository orderPort;
 
     @Mock
-    private CurrencyAmountPersistencePort currencyAmountPort;
+    private CurrencyAmountGateway currencyAmountPort;
 
     @InjectMocks
-    private OrderUseCaseService orderUseCaseService;
+    private OrderService orderUseCaseService;
 
     @Captor
     private ArgumentCaptor<Order> orderArgumentCaptor;

@@ -8,7 +8,7 @@ import com.tw.hexagon.ddd_sample.application.order.port.in.result.OrderQueryResu
 
 import java.math.BigDecimal;
 
-public interface OrderUseCasePort {
+public interface OrderUseCase {
 
     OrderCreateResult createOrder(OrderCreateCommand command);
 
