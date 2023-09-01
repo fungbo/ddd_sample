@@ -21,12 +21,12 @@ import java.math.BigDecimal;
 @RequestMapping("/orders")
 public class OrderController {
 
-    private final OrderUseCase orderUseCasePort;
+    private final OrderUseCase orderUseCase;
 
     @PostMapping
     public OrderCreateResponse createOrder(@RequestBody OrderCreateRequest request) {
         OrderCreateCommand command = new OrderCreateCommand(request.totalQuantity(), request.unitPrice());
-        OrderCreateResult orderCreateResult = orderUseCasePort.createOrder(command);
+        OrderCreateResult orderCreateResult = orderUseCase.createOrder(command);
 
         return new OrderCreateResponse(orderCreateResult.id());
     }
@@ -35,20 +35,20 @@ public class OrderController {
     public void updateOrderQuantity(@PathVariable String id, @RequestBody OrderQuantityChangeRequest orderQuantityChangeRequest) {
         OrderQuantityChangeCommand command = OrderMapper.INSTANCE.toQuantityChangeCommand(id, orderQuantityChangeRequest);
 
-        orderUseCasePort.updateOrderQuantity(command);
+        orderUseCase.updateOrderQuantity(command);
     }
 
     @GetMapping("/{id}/total-price")
     public OrderTotalPriceCalculateResponse calculateTotalPriceWithCurrency(@PathVariable String id, @RequestParam String currency) {
         OrderTotalPriceCalculateCommand command = new OrderTotalPriceCalculateCommand(id, currency);
-        BigDecimal totalPrice = orderUseCasePort.calculateTotalPriceWithCurrency(command);
+        BigDecimal totalPrice = orderUseCase.calculateTotalPriceWithCurrency(command);
 
         return new OrderTotalPriceCalculateResponse(id, totalPrice);
     }
 
     @GetMapping("/{id}")
     public OrderFindResponse findOrderById(@PathVariable String id) {
-        OrderQueryResult orderModel = orderUseCasePort.findById(id);
+        OrderQueryResult orderModel = orderUseCase.findById(id);
 
         return OrderMapper.INSTANCE.toOrderResponse(orderModel);
     }
