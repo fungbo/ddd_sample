@@ -1,1 +1,5 @@
-
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/sales_order?useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
