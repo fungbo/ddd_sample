@@ -19,7 +19,6 @@ public class OrderSystemTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-
     @Test
     @Sql(scripts = "/fixtures/insert_order.sql")
     void should_calculate_total_price_of_order_when_currency_is_usd() {
